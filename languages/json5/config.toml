@@ -1,0 +1,5 @@
+name = "JSON5"
+grammar = "json5"
+path_suffixes = ["json5"]
+line_comments = ["//"]
+block_comments = ["/*", "*/"]

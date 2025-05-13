@@ -1,0 +1,11 @@
+id = "json5"
+name = "JSON5"
+version = "0.0.1"
+schema_version = 1
+authors = ["Chunzheng Wang <chunzheng.wang@icloud.com>"]
+description = "JSON5 syntax highlighting support to Zed using Joakker's Tree-sitter."
+repository = "https://github.com/ChunzhengLab/json5-zed-extension"
+
+[grammars.json5]
+repository = "https://github.com/Joakker/tree-sitter-json5"
+rev = "master"

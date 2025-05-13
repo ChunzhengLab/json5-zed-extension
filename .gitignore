@@ -1,0 +1,22 @@
+# === Rust & Cargo ===
+/target/
+/Cargo.lock
+
+# === Zed Extension Build ===
+/extension.wasm
+/grammars
+
+# === Node bindings (if any) ===
+/bindings/node/build/
+/bindings/node/node_modules/
+/package-lock.json
+
+# === IDEs ===
+.idea/
+.vscode/
+*.swp
+*.bak
+.DS_Store
+
+# === OS ===
+Thumbs.db
