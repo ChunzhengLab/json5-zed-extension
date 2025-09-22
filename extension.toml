@@ -8,4 +8,4 @@ repository = "https://github.com/ChunzhengLab/json5-zed-extension"
 
 [grammars.json5]
 repository = "https://github.com/Joakker/tree-sitter-json5"
-rev = "v0.1.0"
+rev = "8cb4114a4d7e5bab75d74466422e032de31d83df"
