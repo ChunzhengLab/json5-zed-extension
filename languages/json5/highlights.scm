@@ -1,6 +1,6 @@
 (string) @string
 
-(identifier) @constant
+(identifier) @property.json_key
 
 (number) @constant.numeric
 
@@ -9,3 +9,15 @@
 [(true) (false)] @constant.builtin.boolean
 
 (comment) @comment
+
+[
+  ","
+  ":"
+] @punctuation.delimiter
+
+[
+  "{"
+  "}"
+  "["
+  "]"
+] @punctuation.bracket
