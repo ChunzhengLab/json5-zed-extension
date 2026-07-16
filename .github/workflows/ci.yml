@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tree-sitter-queries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install the pinned JSON5 grammar
+        shell: bash
+        run: |
+          revision="$(sed -n 's/^rev = "\([^"]*\)"/\1/p' extension.toml)"
+          git clone https://github.com/Joakker/tree-sitter-json5.git /tmp/tree-sitter-json5
+          git -C /tmp/tree-sitter-json5 checkout "$revision"
+          npm --prefix /tmp/tree-sitter-json5 install
+
+      - name: Parse the JSON5 fixture
+        working-directory: /tmp/tree-sitter-json5
+        run: npx tree-sitter parse "$GITHUB_WORKSPACE/testdata/sample.json5"
+
+      - name: Compile and run every Tree-sitter query
+        working-directory: /tmp/tree-sitter-json5
+        shell: bash
+        run: |
+          for query in "$GITHUB_WORKSPACE"/languages/json5/*.scm; do
+            npx tree-sitter query "$query" "$GITHUB_WORKSPACE/testdata/sample.json5"
+          done

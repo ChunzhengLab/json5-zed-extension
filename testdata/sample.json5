@@ -1,0 +1,15 @@
+// JSON5 syntax coverage
+{
+  unquotedKey: 'single-quoted value',
+  "quoted-key": "double-quoted value",
+  numbers: {
+    decimal: 42,
+    leadingDecimalPoint: .5,
+    trailingDecimalPoint: 5.,
+    hexadecimal: 0xdecaf,
+    positiveInfinity: +Infinity,
+    notANumber: NaN,
+  },
+  flags: [true, false, null],
+  /* Block comments and trailing commas are valid JSON5. */
+}

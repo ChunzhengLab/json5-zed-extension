@@ -1,5 +1,13 @@
 name = "JSON5"
 grammar = "json5"
 path_suffixes = ["json5"]
-line_comments = ["//"]
-block_comments = ["/*", "*/"]
+line_comments = ["// "]
+block_comment = { start = "/*", prefix = "", end = "*/", tab_size = 1 }
+autoclose_before = ",]}"
+tab_size = 2
+brackets = [
+    { start = "{", end = "}", close = true, surround = true, newline = true },
+    { start = "[", end = "]", close = true, surround = true, newline = true },
+    { start = "\"", end = "\"", close = true, surround = true, newline = false, not_in = ["string", "comment"] },
+    { start = "'", end = "'", close = true, surround = true, newline = false, not_in = ["string", "comment"] },
+]
